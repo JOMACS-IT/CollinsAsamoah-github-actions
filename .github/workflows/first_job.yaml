@@ -1,18 +1,19 @@
 name: First Workflow
 
 on:
-  - push
+  push:
 
-jobs: 
-    first_job: 
-      name: Collpep-K8s
-      runs-on: ubuntu-latest
-      steps:
-            - name: First Message
-              run: echo "Welcome to the world of CICD through GitHu Actions"
+jobs:
+  first_job:
+    name: Collpep-K8s
+    runs-on: ubuntu-latest
 
-            - name: List All Files including hidden
-              run: ls -1a
+    steps:
+      - name: First Message
+        run: echo "Welcome to the world of CICD through GitHub Actions"
 
-            - name: Show Present Working Directory 
-              run: pwd
+      - name: List All Files including hidden
+        run: ls -1a
+
+      - name: Show Present Working Directory
+        run: pwd
