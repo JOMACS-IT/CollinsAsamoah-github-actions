@@ -1,0 +1,17 @@
+name: First Workflow
+
+on:
+  - push
+
+jobs: 
+    first_job: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: List and Read files
+              run: |
+                echo "My first GitHu Actions Job"
+                ls -1
+                cat dockerfile
