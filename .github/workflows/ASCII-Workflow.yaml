@@ -1,16 +1,16 @@
-name: ASCII Workflow
+# name: ASCII Workflow
 
-on:
-  - push
+# on:
+#   - push
 
-jobs: 
-    ASCII-Workflow: 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Code
-              uses: actions/checkout@v4
+# jobs: 
+#     ASCII-Workflow: 
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Checkout Code
+#               uses: actions/checkout@v4
 
-            - name: Execute Shell Script
-              run: |
-                chmod +x ascii-script.sh  
-                ./ascii-script.sh
+#             - name: Execute Shell Script
+#               run: |
+#                 chmod +x ascii-script.sh  
+#                 ./ascii-script.sh
