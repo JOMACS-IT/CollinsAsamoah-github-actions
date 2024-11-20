@@ -4,7 +4,7 @@ on:
   - push
 
 jobs: 
-    first_job: 
+    ASCII-Workflow: 
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
