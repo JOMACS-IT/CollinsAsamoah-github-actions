@@ -1,11 +1,11 @@
-name: ASCII Workflow
+name: ASCII Workflow.yaml
 
 on:
   - push
 
 jobs: 
     first_job: 
-        name: ASCII Workflow
+        name: ASCII Workflow.yaml
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
