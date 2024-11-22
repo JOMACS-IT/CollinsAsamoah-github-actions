@@ -7,17 +7,17 @@ jobs:
   docker_build: 
     runs-on: ubuntu-latest
     steps: 
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Docker Build 
-      run: docker build -t resume-app:latest .
+      - name: Docker Build 
+        run: docker build -t resume-app:latest .
 
-    - name: Docker Login
-      run: docker login --username=collinsasamoah --password=Collpep@90
+      - name: Docker Login
+        run: docker login --username=collinsasamoah --password=Collpep@90
 
-    - name: Docker Publish 
-      run: docker push docker.io/collinsasamoah/resume-app:latest
+      - name: Docker Publish 
+        run: docker push docker.io/collinsasamoah/resume-app:latest
 
   docker_deploy:
     needs: docker_build
