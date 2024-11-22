@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Docker Build 
-        run: docker build -t resume-app:latest .
+        run: docker build -t collinsasamoah/resume-app:latest .
 
       - name: Docker Login
         run: docker login --username=collinsasamoah --password=Collpep@90
@@ -25,7 +25,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
       - name: Docker Login
         run: docker login --username=collinsasamoah --password=Collpep@90
+
       - name: Docker Run
         run: docker run -d -p 8080:80 docker.io/collinsasamoah/resume-app:latest
