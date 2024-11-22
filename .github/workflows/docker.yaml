@@ -1,0 +1,31 @@
+name: Docker Workflow
+
+on:
+  - push
+  
+jobs: 
+  docker_build: 
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Docker Build 
+      run: docker build -t docker.io/efotsowoe/resume-app:latest .
+
+    - name: Docker Login
+      run: docker login --username=efotsowoe --password=ricewater!!233
+
+    - name: Docker Publish 
+      run: docker push docker.io/efotsowoe/resume-app:latest
+
+  docker_deploy:
+    needs: docker_build
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Docker Login
+        run: docker login --username=efotsowoe --password=ricewater!!233
+      - name: Docker Run
+        run: docker run -d -p 8080:80 docker.io/efotsowoe/resume-app:latest
