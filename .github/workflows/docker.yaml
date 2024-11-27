@@ -6,7 +6,6 @@ on:
       - demo
     paths:          # contains files or directories you want to use for this workflow
       - css/**
-      - images/**
       - js/**
       - index.html
       - Dockerfile
