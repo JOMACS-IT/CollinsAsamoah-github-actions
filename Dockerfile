@@ -12,3 +12,5 @@ EXPOSE 80
 
 # Start the Nginx server
 CMD ["nginx", "-g", "daemon off;"]
+
+# ---------------- This is the content of my Dockerfile ---------------------------------
