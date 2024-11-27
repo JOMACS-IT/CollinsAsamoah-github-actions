@@ -5,9 +5,6 @@ on:
     branches:
       - demo
     paths:          # contains files or directories you want to use for this workflow
-      - css/**
-      - js/**
-      - index.html
       - ./Dockerfile
 
 env:
