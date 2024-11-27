@@ -3,7 +3,7 @@ name: Docker Workflow
 on:
   push:
       branches:
-        -main
+        -demo
 
 env:
     CONTAINER_REGISTRY: docker.io
