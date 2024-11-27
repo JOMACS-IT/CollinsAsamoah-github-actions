@@ -9,7 +9,7 @@ on:
       - ./images/**
       - ./js/**
       - index.html
-      - dockerfile
+      - Dockerfile
 
 env:
     CONTAINER_REGISTRY: docker.io
