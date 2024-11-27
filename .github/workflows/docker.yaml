@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - demo
+    paths:          # contains files or directories you want to use for this workflow
+      - ./css/**
+      - ./images/**
+      - ./js/**
+      - ./index.html
+      - ./dockerfile
 
 env:
     CONTAINER_REGISTRY: docker.io
