@@ -8,7 +8,7 @@ on:
       - ./first_job.yaml
       - ./ASCII-Workflowl.yaml
       - ./Second_job.yaml
-      - ./Dockerfile
+      - Dockerfile
 
 env:
     CONTAINER_REGISTRY: docker.io
