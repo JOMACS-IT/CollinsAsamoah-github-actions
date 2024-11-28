@@ -9,8 +9,8 @@ on:
       - ./ASCII-Workflowl.yaml
       - ./Second_job.yaml
       - Dockerfile
-  Workflow_dispatch:
-
+  workflow_dispatch:
+  
 env:
     CONTAINER_REGISTRY: docker.io
     IMAGE_NAME: resume-app
