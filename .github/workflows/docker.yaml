@@ -1,6 +1,7 @@
 name: Docker Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - demo
@@ -9,7 +10,6 @@ on:
       - ./ASCII-Workflowl.yaml
       - ./Second_job.yaml
       - Dockerfile
-  workflow_dispatch:
   
 env:
     CONTAINER_REGISTRY: docker.io
