@@ -1,7 +1,15 @@
 name: Docker Workflow
 
 on:
-  - push
+  push:
+    branches:
+      - demo
+    paths:     
+      - ./first_job.yaml
+      - ./ASCII-Workflowl.yaml
+      - ./Second_job.yaml
+      - Dockerfile
+  Workflow_dispatch:
 
 env:
     CONTAINER_REGISTRY: docker.io
