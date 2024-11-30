@@ -1,13 +1,13 @@
 name: Docker Workflow
 
 on:
-  push:
-    branches:
-      - demo
-    paths:     
-      - ./ASCII-Workflowl.yaml
-      - ./Second_job.yaml
-      - Dockerfile    
+  # push:
+  #   branches:
+  #     - demo
+  #   paths:     
+  #     - ./ASCII-Workflowl.yaml
+  #     - ./Second_job.yaml
+  #     - Dockerfile    
   workflow_dispatch:
   
 env:
