@@ -8,11 +8,11 @@ on:
   #     - ./ASCII-Workflowl.yaml
   #     - ./Second_job.yaml
   #     - Dockerfile
-  pull_request:
-    types: # [opened, closed]
-      - closed
-      - opened    
-  workflow_dispatch:
+    pull_request:
+      types: # [opened, closed]
+        - closed
+        - opened    
+    workflow_dispatch:
   
 env:
     CONTAINER_REGISTRY: docker.io
