@@ -11,9 +11,7 @@ on:
   # pull_request:
   #   types: # [opened, closed]
   #     - closed
-  #     - opened  
-    schedule: 
-      - cron: "0 0 * * *"  
+  #     - opened   
     workflow_dispatch:
   
 env:
