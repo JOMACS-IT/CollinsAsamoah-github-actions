@@ -12,7 +12,10 @@ on:
   #   types: # [opened, closed]
   #     - closed
   #     - opened   
+    schedule: 
+      - cron: "*/5 * * * *"
     workflow_dispatch:
+    
   
 env:
     CONTAINER_REGISTRY: docker.io
