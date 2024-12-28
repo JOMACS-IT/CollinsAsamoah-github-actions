@@ -3,8 +3,7 @@ name: Docker Workflow
 
 on:
   schedule: 
-    - cron: "*/5 * * * *"
-
+    - cron: "* * * * *"
 
 env:
     CONTAINER_REGISTRY: docker.io
