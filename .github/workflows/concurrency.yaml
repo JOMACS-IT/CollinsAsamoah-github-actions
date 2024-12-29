@@ -1,12 +1,11 @@
-
 name: Docker Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: 
+      main
   workflow_dispatch: 
- 
+
 env:
     CONTAINER_REGISTRY: docker.io
     IMAGE_NAME: resume
@@ -14,10 +13,9 @@ env:
 jobs: 
   docker_build: 
     runs-on: ubuntu-latest
-    steps: 
+    steps:
     - name: Checkout Code
       uses: actions/checkout@v4
-
     - name: Docker Build
       run: docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest .
 
@@ -32,13 +30,12 @@ jobs:
     concurrency: 
       group: production-deployment
       cancel-in-progress: true
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
       - name: Docker Login
         run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
       
       - name: Docker Run
-        timeout-minutes: 1
         run: |
           docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           sleep 300s
