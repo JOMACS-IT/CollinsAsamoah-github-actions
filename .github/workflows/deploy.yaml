@@ -24,7 +24,7 @@ jobs:
       run: docker push ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
   docker_deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/demo'
     needs: docker_build
     runs-on: ubuntu-latest 
     steps:
@@ -32,7 +32,7 @@ jobs:
       run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD }}
     
     - name: Docker Deploy
-      timeout-minutes: 1
+      timeout-minutes: 6
       run: |
         docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
         sleep 300s
