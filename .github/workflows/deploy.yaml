@@ -32,7 +32,7 @@ jobs:
       run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD }}
     
     - name: Docker Deploy
-      timeout-minutes: 1
+      timeout-minutes: 6
       run: |
         docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
         sleep 300s
