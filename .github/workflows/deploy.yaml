@@ -25,7 +25,7 @@ jobs:
       run: docker push ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
   docker_deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/demo'
     needs: docker_build
     runs-on: ubuntu-latest 
     steps:
