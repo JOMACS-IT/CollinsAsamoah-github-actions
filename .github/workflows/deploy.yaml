@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-      - staging
-    branches-ignore: 
-      - feature/*
+      - staging 
+      - '!feature/*'
 
   pull_request:
     types: 
@@ -49,3 +48,5 @@ jobs:
         timeout-minutes: 1
         run: |
           docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+#------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------
