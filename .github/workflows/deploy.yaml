@@ -1,7 +1,20 @@
-name: Conditional Deployment
+name: Docker Workflow
 
 on:
-  push
+  push:
+    branches:
+      - main
+      - staging 
+      - '!feature/*'
+
+  pull_request:
+    types: 
+      - opened
+      - closed
+    paths-ignore:
+      - README.md
+    branches:
+      - main
 
 env:
     CONTAINER_REGISTRY: docker.io
@@ -11,28 +24,37 @@ jobs:
   docker_build: 
     runs-on: ubuntu-latest
     steps: 
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Docker Build
-      run: docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest .
+      - name: Docker Build
+        run: docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest .
 
-    - name: Docker Login
-      run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+      - name: Docker Login
+        run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD }}
 
-    - name: Docker Publish 
-      run: docker push ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+      - name: Docker Publish 
+        run: docker push ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
   docker_deploy:
-    if: github.ref == 'refs/heads/main'
     needs: docker_build
     runs-on: ubuntu-latest 
+  
     steps:
-    - name: Docker Login
-      run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD }}
+      - name: Docker Login
+        run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD }}
     
+<<<<<<< HEAD
     - name: Docker Deploy
       timeout-minutes: 6
       run: |
         docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
         sleep 300s
+=======
+      - name: Docker Deploy
+        timeout-minutes: 1
+        run: |
+          docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+#------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------
+>>>>>>> b700b6f79c6aa8d38d609b1501852fe1a6b12d0d
