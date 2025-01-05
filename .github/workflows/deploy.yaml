@@ -44,17 +44,9 @@ jobs:
       - name: Docker Login
         run: docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD }}
     
-<<<<<<< HEAD
-    - name: Docker Deploy
-      timeout-minutes: 6
-      run: |
-        docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
-        sleep 300s
-=======
       - name: Docker Deploy
         timeout-minutes: 1
         run: |
           docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 #------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------
->>>>>>> b700b6f79c6aa8d38d609b1501852fe1a6b12d0d
